@@ -1,12 +1,11 @@
 const express = require('express')
+const app = express()
+const routes = require('./src/routes/routes')
 
-const app = require('./app')
-const slackRoute = require('./routes/slackRoute')
+app.use(routes)
 
 const port = process.env.PORT || 3010
 
-app.use('/', slackRoute)
-
-app.listen(port, async () => {
+app.listen(port, () => {
   console.log(`Server is connected, listening on port ${port}`)
 })
